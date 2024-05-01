@@ -1,0 +1,12 @@
+[Unit]
+     Description=Start My Docker Container
+     Requires=docker.service
+     After=docker.service
+
+     [Service]
+     Restart=always
+     ExecStart=/usr/bin/docker start -a ollama
+     ExecStop=/usr/bin/docker stop -t 2 ollama
+
+     [Install]
+     WantedBy=multi-user.target
